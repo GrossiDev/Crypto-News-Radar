@@ -6,10 +6,15 @@ O projeto opera de forma autônoma, garantindo que análises de alto nível seja
 🚀 Funcionalidades Principais:
 
   📰 Web Scraping Orientado: Captura artigos de notícias e dados do mercado de fontes como CoinDesk e CoinTelegraph.
+  
   🤖 Geração de Análise Institucional (Gemini): Utiliza a API do Google Gemini para processar as notícias e gerar relatórios completos, com foco em macroeconomia, liquidez, análise on-chain e estrutura de mercado.
+  
   📐 Formato de Relatório Estruturado: O relatório gerado adere a um formato rigoroso, incluindo um Institutional Header, Executive Summary, Technical Levels e uma narrativa contínua com cenários de probabilidade ponderada (Base, Bullish, Bearish).
+  
   ⏱️ Automação Completa (Discord Bots): Dois bots de Discord (Aethos e Nexus) gerenciam o ciclo completo, desde o início do scraping agendado (a cada 24 horas) até a publicação final da análise no canal desejado.
+  
   🧹 Limpeza Automática: Após a publicação, os arquivos temporários de dados (news.json e news.txt) são automaticamente deletados para manter o sistema limpo.
+  
   ⚙️ Arquitetura do Sistema: O fluxo de trabalho é orquestrado por múltiplos scripts Python, cada um com uma função específica: 
     bot.py (Aethos): O bot principal de agendamento. Inicializa o processo de scraping e executa o ciclo a cada 24 horas usando @tasks.loop. 
     coindesk.py & coinint.py: Módulos de Web Scraping. Coletam dados de notícias de diversas URLs de ativos (BTC, ETH, XRP, SOL) e outras fontes, salvando o conteúdo bruto no arquivo news.json.
