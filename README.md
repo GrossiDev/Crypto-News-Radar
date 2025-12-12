@@ -16,9 +16,13 @@ O projeto opera de forma autônoma, garantindo que análises de alto nível seja
   🧹 Limpeza Automática: Após a publicação, os arquivos temporários de dados (news.json e news.txt) são automaticamente deletados para manter o sistema limpo.
   
   ⚙️ Arquitetura do Sistema: O fluxo de trabalho é orquestrado por múltiplos scripts Python, cada um com uma função específica: 
+    
     bot.py (Aethos): O bot principal de agendamento. Inicializa o processo de scraping e executa o ciclo a cada 24 horas usando @tasks.loop. 
+    
     coindesk.py & coinint.py: Módulos de Web Scraping. Coletam dados de notícias de diversas URLs de ativos (BTC, ETH, XRP, SOL) e outras fontes, salvando o conteúdo bruto no arquivo news.json.
+    
     gemini.py: O núcleo de inteligência. Lê o news.json, envia o conteúdo junto com um prompt detalhado e institucional para o modelo Gemini, e salva a análise gerada em news.txt.
+    
     nexus.py (Nexus): O bot de publicação. Inicia, lê o news.txt, divide a mensagem em partes (devido ao limite de 2000 caracteres do Discord), publica no canal de destino, e, em seguida, deleta os arquivos news.txt e news.json antes de se desligar.
     
 🛠️ Configuração e Instalação
